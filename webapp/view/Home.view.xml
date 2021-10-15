@@ -1,14 +1,76 @@
-<mvc:View
-    controllerName="com.demo.worklist.controller.Home"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns="sap.m"
->
+<mvc:View controllerName="com.demo.worklist.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
 	<Shell id="shell">
 		<App id="idHome">
 			<pages>
-				<Page id="page" title="Home">
-					<content />
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Table growing="true" growingThreshold="10" items="{
+							path: '/ProductSet',
+							parameters: {
+								$count: true
+							}
+						}">
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<SearchField 
+										width="20%" 
+										placeholder="{i18n>searchProductName}"
+										search=".onSearch"/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+												<columns>
+								<Column id="ProductID">
+									<Text text="{i18n>ProductID}"/>
+								</Column>
+								<Column id="Name">
+									<Text text="{i18n>Name}"/>
+								</Column>
+								<Column id="Description" width="15rem">
+									<Text text="{i18n>Description}" />
+								</Column>
+								<Column id="SupplierID">
+									<Text text="{i18n>SupplierID}"/>
+								</Column>
+								<Column id="SupplierName">
+									<Text text="{i18n>SupplierName}"/>
+								</Column>
+								<Column id="MeasureUnit">
+									<Text text="{i18n>MeasureUnit}"/>
+								</Column>
+								<Column id="Price">
+									<Text text="{i18n>Price}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{ProductID}"/>
+									</cells>
+									<cells>
+										<Text text="{Name}"/>
+									</cells>
+									<cells>
+										<Text text="{Description}"/>
+									</cells>
+									<cells>
+										<Text text="{SupplierID}"/>
+									</cells>
+									<cells>
+										<Text text="{SupplierName}"/>
+									</cells>
+									<cells>
+										<Text text="{MeasureUnit}"/>
+									</cells>
+									<cells>
+										<Text text="{Price}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							
+						</Table>
+					</content>
 				</Page>
 			</pages>
 		</App>
