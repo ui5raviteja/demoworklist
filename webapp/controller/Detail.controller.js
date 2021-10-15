@@ -7,7 +7,7 @@ sap.ui.define([
 function(BaseController) {
     "use strict";
 
-    return Controller.extend("com.demo.worklist.controller.Detail", {
+    return BaseController.extend("com.demo.worklist.controller.Detail", {
         onInit: function() {
 
 
