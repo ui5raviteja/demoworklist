@@ -20,7 +20,7 @@
           "localUri": "localService/metadata.xml"
         }
       }
-		}
+    }
   },
   "sap.ui": {
     "technology": "UI5",
@@ -38,17 +38,15 @@
       "phone": true
     }
   },
-
   "sap.ui5": {
     "flexEnabled": false,
     "rootView": {
       "viewName": "com.demo.worklist.view.App",
       "type": "XML",
-      "async": true,
-      "id": "App"
+      "async": true
     },
     "dependencies": {
-			"minUI5Version": "1.95.0",
+      "minUI5Version": "1.95.0",
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
@@ -67,10 +65,10 @@
           "bundleName": "com.demo.worklist.i18n.i18n"
         }
       },
-			"": {
-				"dataSource": "mainService",
-				"preload": true
-			}
+      "": {
+        "dataSource": "mainService",
+        "preload": true
+      }
     },
     "resources": {
       "css": [
@@ -91,18 +89,34 @@
       },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": "RouteApp",
-          "target": ["TargetApp"]
+          "name": "home",
+          "pattern": "",
+          "target": [
+            "TargetHome"
+          ]
+        },
+        {
+          "name": "detail",
+          "pattern": "detail",
+          "target": [
+            "TargetDetail"
+          ]
         }
       ],
       "targets": {
-        "TargetApp": {
+        "TargetHome": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App"
+          "viewId": "idHome",
+          "viewName": "Home"
+        },
+        "TargetDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "idDetail",
+          "viewName": "Detail"
         }
       }
     }
